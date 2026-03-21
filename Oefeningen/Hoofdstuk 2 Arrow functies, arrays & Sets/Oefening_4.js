@@ -25,8 +25,6 @@ let groentenFruit = StringFruitGroenten();
 let groenten = [];
 let fruit = [];
 
-console.log(`Je hebt volgende groenten en fruit ingegeven: [ ${groentenFruit.join(`, `).trim()} ]`);
-
 for (let index = 0; index < groentenFruit.length; index++) {
     if (groentenFruit[index].startsWith("g ")) {
         groenten.push(groentenFruit[index].substring(2, groentenFruit[index].length));

@@ -1,6 +1,7 @@
 // Arrow function
 const StringFruitGroenten = () => {
-    let groentenFruit = [];
+    const groenten = new Set();
+    const fruit = new Set();
 
     while (true){
         let input = prompt("Geef een fruit of groente in, of druk op enter om te stoppen: [] ");
@@ -10,30 +11,18 @@ const StringFruitGroenten = () => {
         }
 
         if (input.startsWith("g ")) {
-            groentenFruit.push(input);
+            groenten.add(input.substring(2));
         } else if (input.startsWith("f ")) {
-            groentenFruit.push(input);
+            fruit.add(input.substring(2));
         }
         
     }
 
-    return groentenFruit;
+    return {groenten, fruit};
 }
 
 // Main program
-let groentenFruit = StringFruitGroenten();
-let groenten = [];
-let fruit = [];
+const groentenfruit = StringFruitGroenten();
 
-console.log(`Je hebt volgende groenten en fruit ingegeven: [ ${groentenFruit.join(`, `).trim()} ]`);
-
-for (let index = 0; index < groentenFruit.length; index++) {
-    if (groentenFruit[index].startsWith("g ")) {
-        groenten.push(groentenFruit[index].substring(2, groentenFruit[index].length));
-    } else if (groentenFruit[index].startsWith("f ")) {
-        fruit.push(groentenFruit[index].substring(2, groentenFruit[index].length));
-    }
-}
-
-console.log(`Je hebt volgende groenten ingegeven: [ ${groenten.join(`, `).trim()} ]`);
-console.log(`Je hebt volgende fruit ingegeven: [ ${fruit.join(`, `).trim()} ]`);
+console.log("Groenten: ", groentenfruit.groenten);
+console.log("Groenten: " , groentenfruit.fruit);
